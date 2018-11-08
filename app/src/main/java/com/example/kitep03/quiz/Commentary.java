@@ -5,18 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class TitleActivity extends AppCompatActivity {
+public class Commentary extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_title);
+        setContentView(R.layout.activity_commentary);
     }
 
-    public void OnButtonClick(View view){
-        Intent intent = new Intent(this,QuizActivity.class);
+    public void OnExitButtonClick(View View) {
+        Intent intent = new Intent(this, TitleActivity.class);
         startActivity(intent);
     }
-
 }
-
