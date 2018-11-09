@@ -13,7 +13,7 @@
         tools:layout_editor_absoluteY="16dp">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/problem_statement_textview"
             android:layout_width="550dp"
             android:layout_height="400dp"
             android:layout_alignParentTop="true"
@@ -23,18 +23,18 @@
             android:textColor="#8a8a8a" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/choices_1_button"
             android:layout_width="200dp"
             android:layout_height="75dp"
-            android:layout_alignStart="@+id/button7"
-            android:layout_alignTop="@+id/button6"
+            android:layout_alignStart="@+id/choices_3_button"
+            android:layout_alignTop="@+id/choices_2_button"
             android:background="@drawable/quiz_button_state"
             android:onClick="OnChoicesButton1Click"
             android:text=""
             android:textColor="#8a8a8a" />
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/choices_2_button"
             android:layout_width="200dp"
             android:layout_height="75dp"
             android:layout_alignParentStart="true"
@@ -47,7 +47,7 @@
             android:textColor="#8a8a8a" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/choices_3_button"
             android:layout_width="200dp"
             android:layout_height="75dp"
             android:layout_alignParentStart="true"
@@ -60,10 +60,10 @@
             android:textColor="#8a8a8a" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/choices_4_button"
             android:layout_width="200dp"
             android:layout_height="75dp"
-            android:layout_alignStart="@+id/button6"
+            android:layout_alignStart="@+id/choices_2_button"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="0dp"
             android:layout_marginBottom="91dp"
@@ -73,7 +73,7 @@
             android:textColor="#8a8a8a" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/exit_button"
             android:layout_width="200dp"
             android:layout_height="75dp"
             android:layout_alignParentEnd="true"

@@ -13,8 +13,13 @@ public class Commentary extends AppCompatActivity {
         setContentView(R.layout.activity_commentary);
     }
 
-    public void OnExitButtonClick(View View) {
-        Intent intent = new Intent(this, TitleActivity.class);
+    public void OnExitButtonClick(View view) {
+        Intent intent = new Intent(this, ResultActivity.class);
+        startActivity(intent);
+    }
+
+    public void OnNextButtonClick(View view){
+        Intent intent = new Intent(this,QuizActivity.class);
         startActivity(intent);
     }
 }

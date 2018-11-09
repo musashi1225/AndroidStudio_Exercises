@@ -14,7 +14,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void OnExitButtonClick(View View) {
-        Intent intent = new Intent(this, TitleActivity.class);
+        Intent intent = new Intent(this, ResultActivity.class);
         startActivity(intent);
     }
 

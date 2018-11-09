@@ -14,12 +14,12 @@
         tools:layout_editor_absoluteY="0dp">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/select_synthesis_button"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="300dp"
             android:layout_height="75dp"
-            android:layout_alignStart="@+id/button2"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="0dp"
             android:layout_marginBottom="400dp"
             android:background="@drawable/button_state"
@@ -27,12 +27,13 @@
             android:text="@string/title_button_synthesis" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/select_technology_button"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="300dp"
             android:layout_height="75dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="0dp"
             android:layout_marginEnd="152dp"
             android:layout_marginBottom="300dp"
@@ -41,25 +42,25 @@
             android:text="@string/title_button_technology" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/select_strategy_button"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="300dp"
             android:layout_height="75dp"
-            android:layout_alignStart="@+id/button2"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="0dp"
             android:layout_marginBottom="200dp"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/button_state"
             android:onClick="OnButtonClick"
             android:text="@string/title_button_strategy" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/select_management_button"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="300dp"
             android:layout_height="75dp"
-            android:layout_alignStart="@+id/button2"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="0dp"
             android:layout_marginBottom="100dp"
             android:background="@drawable/button_state"
@@ -67,7 +68,7 @@
             android:text="@string/title_button_management" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/title_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
