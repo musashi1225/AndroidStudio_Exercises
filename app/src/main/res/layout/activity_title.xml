@@ -23,7 +23,7 @@
             android:layout_marginStart="0dp"
             android:layout_marginBottom="400dp"
             android:background="@drawable/button_state"
-            android:onClick="OnButtonClick"
+            android:onClick="OnSynthesisButtonClick"
             android:text="@string/title_button_synthesis" />
 
         <Button
@@ -38,7 +38,7 @@
             android:layout_marginEnd="152dp"
             android:layout_marginBottom="300dp"
             android:background="@drawable/button_state"
-            android:onClick="OnButtonClick"
+            android:onClick="OnTechnologyButtonClick"
             android:text="@string/title_button_technology" />
 
         <Button
@@ -47,11 +47,11 @@
             android:layout_width="300dp"
             android:layout_height="75dp"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="0dp"
             android:layout_marginBottom="200dp"
-            android:layout_centerHorizontal="true"
             android:background="@drawable/button_state"
-            android:onClick="OnButtonClick"
+            android:onClick="OnStrategyButtonClick"
             android:text="@string/title_button_strategy" />
 
         <Button
@@ -64,7 +64,7 @@
             android:layout_marginStart="0dp"
             android:layout_marginBottom="100dp"
             android:background="@drawable/button_state"
-            android:onClick="OnButtonClick"
+            android:onClick="OnManegementButtonClick"
             android:text="@string/title_button_management" />
 
         <TextView

@@ -746,9 +746,9 @@ id packed
 id parent
 id parentPanel
 id percent
-id problem_statement_textview
 id progress_circular
 id progress_horizontal
+id question_textview
 id radio
 id result_textview
 id right

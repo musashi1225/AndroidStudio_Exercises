@@ -1,24 +1,92 @@
 package com.example.kitep03.quiz;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+import java.util.Random;
+
+import au.com.bytecode.opencsv.CSVReader;
 
 public class QuizActivity extends AppCompatActivity {
 
     boolean decision;
     boolean answer_state;
+    TextView question;
+    Button choices_1;
+    Button choices_2;
+    Button choices_3;
+    Button choices_4;
+    String questions[][] = new String[100][9];
+    String temp[][] = new String[100][9];
+    int question_number = 0;
+    int max_question;
+    int classification;
+    int response = 0;
+    int correct_answers = 0;
+    List answered;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
         answer_state = false;
+        question = (TextView)findViewById(R.id.question_textview);
+        choices_1 = (Button)findViewById(R.id.choices_1_button);
+        choices_2 = (Button)findViewById(R.id.choices_2_button);
+        choices_3 = (Button)findViewById(R.id.choices_3_button);
+        choices_4 = (Button)findViewById(R.id.choices_4_button);
+
+        max_question = 0;
+        int parse = 0;
+        Intent intent = getIntent();
+        classification = intent.getIntExtra("classfication",0);
+
+        try {
+            AssetManager as = getResources().getAssets();
+            InputStream is = as.open("question.csv");
+            CSVReader reader = new CSVReader(new InputStreamReader(is), ',');
+            while ((temp[parse] =reader.readNext()) != null) {
+                if(classification == 0) {
+                    questions[max_question] = temp[parse];
+                    max_question++;
+                }else{
+                    if(Integer.parseInt(temp[parse][7]) == classification){
+                        questions[max_question] = temp[parse];
+                        max_question++;
+                    }
+                }
+                parse++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Random rand = new Random();
+        while(question_number == 0) {
+            question_number = rand.nextInt(max_question);
+        }
+        answered.add(question_number);
+
+        question.setText(questions[0][1]);
+        choices_1.setText(questions[question_number][2]);
+        choices_2.setText(questions[question_number][3]);
+        choices_3.setText(questions[question_number][4]);
+        choices_4.setText(questions[question_number][5]);
+
     }
 
     @Override
@@ -26,9 +94,15 @@ public class QuizActivity extends AppCompatActivity {
         if(answer_state == true){
             if(decision == true){
                 Intent intent = new Intent(this,QuizActivity.class);
+                intent.putExtra("classfication",classification);
+                intent.putExtra("response",response);
+                intent.putExtra("correct_answers",correct_answers);
                 startActivity(intent);
             }else{
                 Intent intent = new Intent(this,Commentary.class);
+                intent.putExtra("classfication",classification);
+                intent.putExtra("response",response);
+                intent.putExtra("correct_answers",correct_answers);
                 startActivity(intent);
             }
         }
@@ -76,30 +150,55 @@ public class QuizActivity extends AppCompatActivity {
 
     public void OnChoicesButton1Click(View view){
         if(answer_state == false) {
-            decision = true;
+            if(Integer.parseInt(questions[question_number][6]) == 1){
+                decision = true;
+                correct_answers++;
+            }else{
+                decision = false;
+            }
+            response++;
             AlphaAnimation();
         }
     }
 
     public void OnChoicesButton2Click(View view){
         if(answer_state == false) {
-            decision = false;
+            if(Integer.parseInt(questions[question_number][6]) == 2){
+                decision = true;
+                correct_answers++;
+            }else{
+                decision = false;
+            }
+            response++;
             AlphaAnimation();
         }
     }
 
     public void OnChoicesButton3Click(View view){
         if(answer_state == false) {
-            decision = false;
+            if(Integer.parseInt(questions[question_number][6]) == 3){
+                decision = true;
+                correct_answers++;
+            }else{
+                decision = false;
+            }
+            response++;
             AlphaAnimation();
         }
     }
 
     public void OnChoicesButton4Click(View view){
         if(answer_state == false) {
-            decision = false;
+            if(Integer.parseInt(questions[question_number][6]) == 4){
+                decision = true;
+                correct_answers++;
+            }else{
+                decision = false;
+            }
+            response++;
             AlphaAnimation();
         }
     }
 
 }
+
