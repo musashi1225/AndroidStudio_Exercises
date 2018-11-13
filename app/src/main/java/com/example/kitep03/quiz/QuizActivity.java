@@ -15,7 +15,6 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.List;
 import java.util.Random;
 
 import au.com.bytecode.opencsv.CSVReader;
@@ -29,14 +28,14 @@ public class QuizActivity extends AppCompatActivity {
     Button choices_2;
     Button choices_3;
     Button choices_4;
-    String questions[][] = new String[100][9];
-    String temp[][] = new String[100][9];
+    String commentary;
+    String questions[][] = new String[100][8];
+    String temp[][] = new String[100][8];
     int question_number = 0;
     int max_question;
     int classification;
     int response = 0;
     int correct_answers = 0;
-    List answered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +52,8 @@ public class QuizActivity extends AppCompatActivity {
         max_question = 0;
         int parse = 0;
         Intent intent = getIntent();
+        response = intent.getIntExtra("response",0);
+        correct_answers = intent.getIntExtra("correct_answers",0);
         classification = intent.getIntExtra("classfication",0);
 
         try {
@@ -75,17 +76,23 @@ public class QuizActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Random rand = new Random();
-        while(question_number == 0) {
-            question_number = rand.nextInt(max_question);
+        if(response == max_question){
+            intent = new Intent(this,ResultActivity.class);
+            intent.putExtra("response",response);
+            intent.putExtra("correct_answers", correct_answers);
+            startActivity(intent);
         }
-        answered.add(question_number);
 
-        question.setText(questions[0][1]);
+        Random rand = new Random();
+        question_number = rand.nextInt(max_question);
+
+
+        question.setText(questions[question_number][1]);
         choices_1.setText(questions[question_number][2]);
         choices_2.setText(questions[question_number][3]);
         choices_3.setText(questions[question_number][4]);
         choices_4.setText(questions[question_number][5]);
+        commentary = questions[question_number][8];
 
     }
 
@@ -103,6 +110,7 @@ public class QuizActivity extends AppCompatActivity {
                 intent.putExtra("classfication",classification);
                 intent.putExtra("response",response);
                 intent.putExtra("correct_answers",correct_answers);
+                intent.putExtra("commentary",commentary);
                 startActivity(intent);
             }
         }
