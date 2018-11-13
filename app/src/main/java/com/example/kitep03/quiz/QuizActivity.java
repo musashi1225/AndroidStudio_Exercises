@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Random;
 
 import au.com.bytecode.opencsv.CSVReader;
@@ -36,6 +37,7 @@ public class QuizActivity extends AppCompatActivity {
     int classification;
     int response = 0;
     int correct_answers = 0;
+    ArrayList<Integer> answered = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +50,13 @@ public class QuizActivity extends AppCompatActivity {
         choices_2 = (Button)findViewById(R.id.choices_2_button);
         choices_3 = (Button)findViewById(R.id.choices_3_button);
         choices_4 = (Button)findViewById(R.id.choices_4_button);
-
         max_question = 0;
         int parse = 0;
         Intent intent = getIntent();
         response = intent.getIntExtra("response",0);
         correct_answers = intent.getIntExtra("correct_answers",0);
         classification = intent.getIntExtra("classfication",0);
+        answered = intent.getIntegerArrayListExtra("answered");
 
         try {
             AssetManager as = getResources().getAssets();
@@ -85,7 +87,12 @@ public class QuizActivity extends AppCompatActivity {
 
         Random rand = new Random();
         question_number = rand.nextInt(max_question);
-
+        if( response != 0){
+            if(answered.indexOf(question_number) != -1){
+               rand.nextInt(max_question);
+            }
+        }
+        answered.add(question_number);
 
         question.setText(questions[question_number][1]);
         choices_1.setText(questions[question_number][2]);
@@ -104,6 +111,7 @@ public class QuizActivity extends AppCompatActivity {
                 intent.putExtra("classfication",classification);
                 intent.putExtra("response",response);
                 intent.putExtra("correct_answers",correct_answers);
+                intent.putExtra("answered",answered);
                 startActivity(intent);
             }else{
                 Intent intent = new Intent(this,Commentary.class);
@@ -111,6 +119,7 @@ public class QuizActivity extends AppCompatActivity {
                 intent.putExtra("response",response);
                 intent.putExtra("correct_answers",correct_answers);
                 intent.putExtra("commentary",commentary);
+                intent.putExtra("answered",answered);
                 startActivity(intent);
             }
         }
@@ -124,7 +133,7 @@ public class QuizActivity extends AppCompatActivity {
 
         alpha.setDuration(1000);
         alpha.setFillAfter(true);
-
+        answer_state = true;
         if(decision == true){
             maru.startAnimation(alpha);
         }else{
@@ -139,7 +148,7 @@ public class QuizActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                answer_state = true;
+
 
             }
 
