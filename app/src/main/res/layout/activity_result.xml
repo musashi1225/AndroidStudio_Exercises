@@ -18,7 +18,8 @@
             android:layout_marginTop="650dp"
             android:background="@drawable/exit_button_state"
             android:onClick="OnTitleButtonClick"
-            android:text="タイトルへ" />
+            android:text="タイトルへ"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/result_textview"
@@ -28,7 +29,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="125dp"
             android:textColor="#8a8a8a"
-            android:background="@drawable/frame_border_layout" />
+            android:background="@drawable/frame_border_layout"
+            android:gravity="center"
+            android:textSize="60dp"/>
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

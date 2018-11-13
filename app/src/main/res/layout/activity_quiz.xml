@@ -20,7 +20,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="125dp"
             android:background="@drawable/frame_border_layout"
-            android:textColor="#8a8a8a" />
+            android:textColor="#8a8a8a"
+            android:gravity="top|center"
+            android:textSize="25dp"/>
 
         <Button
             android:id="@+id/choices_1_button"
@@ -30,8 +32,9 @@
             android:layout_alignTop="@+id/choices_2_button"
             android:background="@drawable/quiz_button_state"
             android:onClick="OnChoicesButton1Click"
-            android:text="〇"
-            android:textColor="#8a8a8a" />
+            android:text=""
+            android:textColor="#8a8a8a"
+            android:textSize="20dp"/>
 
         <Button
             android:id="@+id/choices_2_button"
@@ -43,8 +46,9 @@
             android:layout_marginBottom="248dp"
             android:background="@drawable/quiz_button_state"
             android:onClick="OnChoicesButton2Click"
-            android:text="×"
-            android:textColor="#8a8a8a" />
+            android:text=""
+            android:textColor="#8a8a8a"
+            android:textSize="20dp"/>
 
         <Button
             android:id="@+id/choices_3_button"
@@ -56,8 +60,9 @@
             android:layout_marginBottom="92dp"
             android:background="@drawable/quiz_button_state"
             android:onClick="OnChoicesButton3Click"
-            android:text="×"
-            android:textColor="#8a8a8a" />
+            android:text=""
+            android:textColor="#8a8a8a"
+            android:textSize="20dp"/>
 
         <Button
             android:id="@+id/choices_4_button"
@@ -69,8 +74,9 @@
             android:layout_marginBottom="91dp"
             android:background="@drawable/quiz_button_state"
             android:onClick="OnChoicesButton4Click"
-            android:text="×"
-            android:textColor="#8a8a8a" />
+            android:text=""
+            android:textColor="#8a8a8a"
+            android:textSize="20dp"/>
 
         <Button
             android:id="@+id/exit_button"
@@ -81,7 +87,8 @@
             android:layout_marginEnd="35dp"
             android:background="@drawable/exit_button_state"
             android:onClick="OnExitButtonClick"
-            android:text="終了" />
+            android:text="終了"
+            android:textSize="20dp"/>
 
         <ImageView
             android:id="@+id/maru_image"

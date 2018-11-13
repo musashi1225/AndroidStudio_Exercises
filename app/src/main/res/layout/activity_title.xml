@@ -24,7 +24,8 @@
             android:layout_marginBottom="400dp"
             android:background="@drawable/button_state"
             android:onClick="OnSynthesisButtonClick"
-            android:text="@string/title_button_synthesis" />
+            android:text="@string/title_button_synthesis"
+            android:textSize="20dp"/>
 
         <Button
             android:id="@+id/select_technology_button"
@@ -39,7 +40,8 @@
             android:layout_marginBottom="300dp"
             android:background="@drawable/button_state"
             android:onClick="OnTechnologyButtonClick"
-            android:text="@string/title_button_technology" />
+            android:text="@string/title_button_technology"
+            android:textSize="20dp"/>
 
         <Button
             android:id="@+id/select_strategy_button"
@@ -52,7 +54,8 @@
             android:layout_marginBottom="200dp"
             android:background="@drawable/button_state"
             android:onClick="OnStrategyButtonClick"
-            android:text="@string/title_button_strategy" />
+            android:text="@string/title_button_strategy"
+            android:textSize="20dp"/>
 
         <Button
             android:id="@+id/select_management_button"
@@ -65,7 +68,8 @@
             android:layout_marginBottom="100dp"
             android:background="@drawable/button_state"
             android:onClick="OnManegementButtonClick"
-            android:text="@string/title_button_management" />
+            android:text="@string/title_button_management"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/title_textview"

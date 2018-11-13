@@ -18,7 +18,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="125dp"
             android:textColor="#8a8a8a"
-            android:background="@drawable/frame_border_layout" />
+            android:background="@drawable/frame_border_layout"
+            android:gravity="top|center"
+            android:textSize="25dp"/>
 
         <Button
             android:id="@+id/exit_button"
@@ -29,7 +31,8 @@
             android:layout_marginEnd="35dp"
             android:background="@drawable/exit_button_state"
             android:onClick="OnExitButtonClick"
-            android:text="終了" />
+            android:text="終了"
+            android:textSize="20dp"/>
 
         <Button
             android:id="@+id/next_button"
@@ -39,7 +42,8 @@
             android:layout_marginTop="650dp"
             android:background="@drawable/exit_button_state"
             android:onClick="OnNextButtonClick"
-            android:text="次の問題へ" />
+            android:text="次の問題へ"
+            android:textSize="20dp"/>
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
