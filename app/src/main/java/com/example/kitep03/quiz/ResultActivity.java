@@ -18,9 +18,9 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         response = intent.getIntExtra("response",0);
         correct_answers = intent.getIntExtra("correct_answers",0);
-     //   parsent = ((float) correct_answers / (float) response)* 100;
+        parsent = ( (float)correct_answers / (float)response) * 100;
         TextView result_textview = (TextView)findViewById(R.id.result_textview);
-     //   result_textview.setText((int) parsent);
+        result_textview.setText(String.valueOf(parsent));
     }
 
     public void OnTitleButtonClick(View view){

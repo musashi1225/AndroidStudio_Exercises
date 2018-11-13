@@ -56,7 +56,9 @@ public class QuizActivity extends AppCompatActivity {
         response = intent.getIntExtra("response",0);
         correct_answers = intent.getIntExtra("correct_answers",0);
         classification = intent.getIntExtra("classfication",0);
-        answered = intent.getIntegerArrayListExtra("answered");
+        if(response != 0) {
+            answered = intent.getIntegerArrayListExtra("answered");
+        }
 
         try {
             AssetManager as = getResources().getAssets();
@@ -87,9 +89,10 @@ public class QuizActivity extends AppCompatActivity {
 
         Random rand = new Random();
         question_number = rand.nextInt(max_question);
-        if( response != 0){
-            if(answered.indexOf(question_number) != -1){
-               rand.nextInt(max_question);
+
+        if( response != 0 && response < max_question ){
+            while(answered.indexOf(question_number) != -1){
+                question_number = rand.nextInt(max_question);
             }
         }
         answered.add(question_number);
@@ -162,6 +165,8 @@ public class QuizActivity extends AppCompatActivity {
 
     public void OnExitButtonClick(View View) {
         Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("response",response);
+        intent.putExtra("correct_answers",correct_answers);
         startActivity(intent);
     }
 
