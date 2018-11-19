@@ -20,6 +20,8 @@ public class Commentary extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commentary);
+
+        //インテントからデータの受け取る
         Intent intent = getIntent();
         classification = intent.getIntExtra("classfication",0);
         response = intent.getIntExtra("response",0);
@@ -27,6 +29,7 @@ public class Commentary extends AppCompatActivity {
         commentary = intent.getStringExtra("commentary");
         answered = intent.getIntegerArrayListExtra("answered");
 
+        //解説文を配置
         TextView commentary_textview = (TextView)findViewById(R.id.commentary_textview);
         commentary_textview.setText(commentary);
     }

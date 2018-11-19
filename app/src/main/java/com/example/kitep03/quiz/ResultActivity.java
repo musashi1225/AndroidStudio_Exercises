@@ -15,11 +15,16 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+        //インテントからデータを受け取る
         Intent intent = getIntent();
         response = intent.getIntExtra("response",0);
         correct_answers = intent.getIntExtra("correct_answers",0);
+
+        //正答率の計算
         parsent = ( (float)correct_answers / (float)response) * 100;
         parsent = (int)parsent;
+
+        //正答率、解答した問題数、正解した問題数を配置
         TextView result_textview = (TextView)findViewById(R.id.result_textview);
         result_textview.setText(String.valueOf(parsent) + "%\n\n\n" + response + " 問中 " + correct_answers + " 問正解");
     }

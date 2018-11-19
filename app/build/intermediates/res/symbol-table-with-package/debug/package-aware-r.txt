@@ -629,7 +629,11 @@ drawable exit_button_state
 drawable frame_border_layout
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable manegement_button_layout
+drawable manegement_button_pressed_layout
+drawable manegement_button_state
 drawable mark_maru
+drawable mistake_button_layout
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -645,6 +649,12 @@ drawable notify_panel_notification_icon_bg
 drawable quiz_button_layout
 drawable quiz_button_pressed_layout
 drawable quiz_button_state
+drawable strategy_button_layout
+drawable strategy_button_pressed_layout
+drawable strategy_button_state
+drawable technology_button_layout
+drawable technology_button_pressed_layout
+drawable technology_button_state
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT

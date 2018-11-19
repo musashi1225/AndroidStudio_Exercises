@@ -38,7 +38,7 @@
             android:layout_marginStart="0dp"
             android:layout_marginEnd="152dp"
             android:layout_marginBottom="300dp"
-            android:background="@drawable/button_state"
+            android:background="@drawable/technology_button_state"
             android:onClick="OnTechnologyButtonClick"
             android:text="@string/title_button_technology"
             android:textSize="20dp"/>
@@ -52,7 +52,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginStart="0dp"
             android:layout_marginBottom="200dp"
-            android:background="@drawable/button_state"
+            android:background="@drawable/strategy_button_state"
             android:onClick="OnStrategyButtonClick"
             android:text="@string/title_button_strategy"
             android:textSize="20dp"/>
@@ -66,7 +66,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginStart="0dp"
             android:layout_marginBottom="100dp"
-            android:background="@drawable/button_state"
+            android:background="@drawable/manegement_button_state"
             android:onClick="OnManegementButtonClick"
             android:text="@string/title_button_management"
             android:textSize="20dp"/>

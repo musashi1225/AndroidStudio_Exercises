@@ -1,4 +1,4 @@
-#Tue Nov 13 23:49:29 JST 2018
+#Mon Nov 19 12:28:09 JST 2018
 base.0=C\:\\Users\\KITep03\\Documents\\AndroidStudio_Exercises\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\7
 path.0=classes.dex
 renamed.0=classes.dex

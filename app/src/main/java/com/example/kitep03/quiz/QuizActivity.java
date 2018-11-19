@@ -52,6 +52,8 @@ public class QuizActivity extends AppCompatActivity {
         choices_4 = (Button)findViewById(R.id.choices_4_button);
         max_question = 0;
         int parse = 0;
+
+        //インテントからデータを受け取る
         Intent intent = getIntent();
         response = intent.getIntExtra("response",0);
         correct_answers = intent.getIntExtra("correct_answers",0);
@@ -60,6 +62,7 @@ public class QuizActivity extends AppCompatActivity {
             answered = intent.getIntegerArrayListExtra("answered");
         }
 
+        //csvの読み取り
         try {
             AssetManager as = getResources().getAssets();
             InputStream is = as.open("question.csv");
@@ -80,6 +83,7 @@ public class QuizActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //出題していない問題があるかないかの判定
         if(response == max_question){
             intent = new Intent(this,ResultActivity.class);
             intent.putExtra("response",response);
@@ -90,6 +94,7 @@ public class QuizActivity extends AppCompatActivity {
         Random rand = new Random();
         question_number = rand.nextInt(max_question);
 
+        //リストに格納されている問題番号と重複していないか照合
         if( response != 0 && response < max_question ){
             while(answered.indexOf(question_number) != -1){
                 question_number = rand.nextInt(max_question);
@@ -109,14 +114,14 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     public boolean onTouchEvent(MotionEvent event){
         if(answer_state == true){
-            if(decision == true){
+            if(decision == true){//正解した場合の処理
                 Intent intent = new Intent(this,QuizActivity.class);
                 intent.putExtra("classfication",classification);
                 intent.putExtra("response",response);
                 intent.putExtra("correct_answers",correct_answers);
                 intent.putExtra("answered",answered);
                 startActivity(intent);
-            }else{
+            }else{//不正解した場合の処理
                 Intent intent = new Intent(this,Commentary.class);
                 intent.putExtra("classfication",classification);
                 intent.putExtra("response",response);
@@ -141,6 +146,15 @@ public class QuizActivity extends AppCompatActivity {
             maru.startAnimation(alpha);
         }else{
             batu.startAnimation(alpha);
+            if(Integer.parseInt(questions[question_number][6]) == 1){
+                choices_1.setBackgroundResource(R.drawable.mistake_button_layout);
+            }else if(Integer.parseInt(questions[question_number][6]) == 2){
+                choices_2.setBackgroundResource(R.drawable.mistake_button_layout);
+            }else if(Integer.parseInt(questions[question_number][6]) == 3){
+                choices_3.setBackgroundResource(R.drawable.mistake_button_layout);
+            }else if(Integer.parseInt(questions[question_number][6]) == 4){
+                choices_4.setBackgroundResource(R.drawable.mistake_button_layout);
+            }
         }
 
         alpha.setAnimationListener(new Animation.AnimationListener() {
